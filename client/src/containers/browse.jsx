@@ -11,18 +11,13 @@ class BrowsePage extends React.Component {
   }
 
   render(){
-    let productCards;
-    this.props.products ? productCards = this.props.products.map(product => {
-      return <ProductCard productDetail={product} />
-    }) : [];
-
     return (
       <div>
         <NavBar/>
         <div className="container-fluid">
           <SearchBar className="serach-bar col-sm-10"/>
           <div className="row">
-            {productCards}
+            {this.props.children}
           </div>
         </div>
       </div>

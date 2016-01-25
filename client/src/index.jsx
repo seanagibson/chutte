@@ -7,10 +7,13 @@ import {Router, Route, IndexRoute, Redirect} from 'react-router';
 import {syncReduxAndRouter} from 'redux-simple-router';
 import configureStore from './store/configStore';
 import socket from './socket/socket';
+import {fetchProducts} from './actions/actionsProducts';
 import App from './containers/app';
 import Home from './containers/home';
 import Browse from './containers/browse';
 import Dashboard from './containers/dashboard';
+import ProductDetail from './components/productDetail';
+import ProductList from './components/productList';
 
 const history = useBasename(createHistory)({
   basename: '/'
@@ -19,6 +22,8 @@ const history = useBasename(createHistory)({
 const store = configureStore();
 
 syncReduxAndRouter(history, store, (state) => state.router);
+
+//store.dispatch(fetchProducts());
 
 socket(store);
 
@@ -30,6 +35,8 @@ ReactDOM.render(
        <Route path='/' component={App}>
         <IndexRoute component={Home}/>
         <Route path='browse' component={Browse}/>
+          <IndexRoute component={ProductList}/>
+          <Route path='browse/:id' component={ProductDetail}/>
         <Route path='dashboard' component={Dashboard}/>
         <Redirect from='*' to='/' />
       </Route>
