@@ -22,13 +22,12 @@ export function createListingFailure(err){
   };
 }
 
-export function postListing(product){
-  console.log(product, "products")
-  // return function(dispatch){
-    // dispatch(createListing());
+export function postListing(item){
+  return function(dispatch){
+    dispatch(createListing());
       return fetch('/api/items/', {
         method: 'post',
-        body: product,
+        body: JSON.stringify(item),
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -40,5 +39,5 @@ export function postListing(product){
       .catch(function(err){
         dispatch(createListingFailure(err));
       });
-  // };
+  };
 }

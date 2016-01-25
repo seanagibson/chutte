@@ -1,7 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import { bindActionCreators } from 'redux';
-import {postListing} from './../actions/actionsCreateListing';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
@@ -95,4 +92,4 @@ export default class CreateListing extends React.Component {
   }
 }
 
-export default CreateListing;
+export default CreateListing
