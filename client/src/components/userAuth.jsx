@@ -1,9 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {userLogin} from '../actions/actionsUserLogin';
+import {authenticateUser} from '../actions/actionsUserLogin';
 
 class UserAuth extends React.Component{
-  submitUserLogin(){
+  submitUserLogin(e){
+    e.preventDefault();
     let user = {
       userName: this.refs.userName.value,
       password: this.refs.password.value
@@ -35,7 +36,7 @@ class UserAuth extends React.Component{
 function mapDispatchToProps(dispatch){
   return {
     signInUser: function(user) {
-      dispatch(userLogin(user));
+      dispatch(authenticateUser(user));
     }
   }
 }
