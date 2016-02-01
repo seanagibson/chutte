@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import {checkStatus, parseJSON} from './actionsHelper';
-import {GET_PRODUCTS, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAILURE, UPDATE_PRODUCT, POST_BUY, POST_BUY_SUCCESS, POST_BUY_FAILURE} from './actionConstants';
+import {GET_PRODUCTS, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_FAILURE, UPDATE_PRODUCT, POST_BUY, POST_BUY_SUCCESS, POST_BUY_FAILURE, PRODUCT_CATEGORY_FILTER} from './actionConstants';
 
 export function updateProduct(product){
   return {
@@ -48,6 +48,13 @@ export function postBuyFailure(err){
     err: err
   };
 }
+
+export function filterByCategory(category){
+  return {
+    type: PRODUCT_CATEGORY_FILTER,
+    category: category
+   };
+ }
 
 export function fetchProducts(){
   return function(dispatch){

@@ -22,7 +22,7 @@ li > a {
     font-size: 20px;
 }
 
-ul.nav.nav-sidebar.browse > li > a {
+ul.nav.nav-sidebar.browse > li {
     font-size: 1.8vw;
 }
 
@@ -31,8 +31,8 @@ ul.nav.nav-sidebar.browse > li > a {
     border-color: #8E8E8E;
 }
 
-.nav > li > a:hover,
-.nav > li > a:focus {
+.nav > li:hover,
+.nav > li:focus {
     color: #FFFFFF;
     background-color: #00AC69;
     border-style: solid;
@@ -578,13 +578,13 @@ input[type="file"] {
     vertical-align: middle;
 }
 
-.container1 { 
+.container1 {
     margin: 10px;
     height: 150px;
     line-height: 115px;
     overflow: hidden;
 }
-.container1 img { 
+.container1 img {
     width: 100%;
     background-image: url('http://res.cloudinary.com/chutteapi/image/upload/c_scale,w_225/v1453918622/default_oczf9m.png');
     background-repeat: no-repeat;
