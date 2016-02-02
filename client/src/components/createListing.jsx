@@ -59,11 +59,7 @@ export default class CreateListing extends React.Component {
       imgFile: this.state.imgFile,
       description: String(this.state.description)
     }};
-    console.log("before ",this.props.products.fetchStatus);
-    console.log("type before ",typeof this.props.products.fetchStatus);
-    this.props.submitListing(itemDetails);
-    console.log("after ",this.props.products)
-    console.log("type after ",typeof this.props.products.fetchStatus);
+    this.props.submitListing(itemDetails, this.props.user.token);
   }
 
   render() {
