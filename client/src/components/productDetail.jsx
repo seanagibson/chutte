@@ -25,7 +25,7 @@ class ProductDetail extends React.Component {
       quantity: Number(this.refs.purchaseQuantity.value),
       price: this.props.products[this.productIndex].price
     };
-    this.props.buyProduct(purchaseDetails);
+    this.props.buyProduct(purchaseDetails, this.props.user.token);
   }
   componentWillMount() {
     this.findIndex();
@@ -83,14 +83,17 @@ class ProductDetail extends React.Component {
 
 function mapDispatchToProps(dispatch){
   return {
-    buyProduct: function(item) {
-      dispatch(postBuy(item));
+    buyProduct: function(item, userToken) {
+      dispatch(postBuy(item, userToken));
     }
   };
 }
 
 function mapStateToProps(state){
-  return {products: state.productStore.products.productList};
+  return {
+    products: state.productStore.products.productList,
+    user: state.userStore.userAuth
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductDetail)
